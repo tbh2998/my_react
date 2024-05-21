@@ -39,8 +39,8 @@ export const TodoState = ({ children }) => {
   const removeTodo = id => {
     const todo = state.todos.find(t => t.id === id)
     Alert.alert(
-      'Удаление элемента',
-      `Вы уверены, что хотите удалить "${todo.title}"?`,
+      'Delete',
+      `Confirm delete 4 "${todo.title}"?`,
       [
         {
           text: 'Отмена',
@@ -52,7 +52,7 @@ export const TodoState = ({ children }) => {
           onPress: async () => {
             changeScreen(null)
             await fetch(
-              `https://planer-test-app-default-rtdb.firebaseio.com/todos/${id}.json`,
+              `https://testnative-f4f5d-default-rtdb.firebaseio.com/todos/${id}.json`,
               {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' }
@@ -71,7 +71,7 @@ export const TodoState = ({ children }) => {
     clearError()
     try {
       const response = await fetch(
-        'https://planer-test-app-default-rtdb.firebaseio.com/todos.json',
+        'https://testnative-f4f5d-default-rtdb.firebaseio.com/todos.json',
         {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' }
@@ -92,7 +92,7 @@ export const TodoState = ({ children }) => {
   const updateTodo = async (id, title) => {
     clearError()
     try {
-      await fetch(`https://planer-test-app-default-rtdb.firebaseio.com/todos/${id}.json`, {
+      await fetch(`https://testnative-f4f5d-default-rtdb.firebaseio.com/todos/${id}.json`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title })
