@@ -25,7 +25,7 @@ export const TodoState = ({ children }) => {
 
   const addTodo = async title => {
     const response = await fetch(
-      'https://planer-test-app-default-rtdb.firebaseio.com/todos.json',
+      'https://testnative-f4f5d-default-rtdb.firebaseio.com/todos.json',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -52,7 +52,7 @@ export const TodoState = ({ children }) => {
           onPress: async () => {
             changeScreen(null)
             await fetch(
-              `https://testnative-f4f5d-default-rtdb.firebaseio.com/todos/${id}.json`,
+              `https://testnative-f4f5d-default-rtdb.firebaseio.com/${id}.json`,
               {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' }
